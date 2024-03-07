@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>예고편</title>
+    <link rel="stylesheet" href="css/allmovie.css" />
+    <link rel="shortcut icon" href="img/favicon.ico" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="logo">
+        <a href="index.html"><img src="img/logo.png" alt="로고" /></a>
+      </div>
+      <h1>all movie</h1>
+      <div class="video-container">
+        <div class="video">
+          <img src="img/abouttime2.jpg" alt="어바웃 타임" class="video-image" />
+          <video src="video/about time2.mp4" muted></video>
+          <p class="video-title">어바웃 타임</p>
+        </div>
+        <div class="video">
+          <img src="img/seoul.jpg" alt="서울의 봄" class="video-image" />
+          <video src="video/seoul.mp4" muted></video>
+          <p class="video-title">서울의 봄</p>
+        </div>
+        <div class="video">
+          <img src="img/너와 100번째 사랑.jpg" alt="너와 100번째 사랑" class="video-image" />
+          <video src="video/100th love with you.mp4" muted></video>
+          <p class="video-title">너와 100번째 사랑</p>
+        </div>
+        <div class="video">
+          <img src="img/winka2.jpg" alt="웡카" class="video-image" />
+          <video src="video/wonka.mp4" muted></video>
+          <p class="video-title">웡카</p>
+        </div>
+        <div class="video">
+          <img src="img/1917yo.jpg" alt="1917" class="video-image" />
+          <video src="video/1917.mp4" muted></video>
+          <p class="video-title">1917</p>
+        </div>
+        <div class="video">
+          <img src="img/aladdin.jpg" alt="알라딘" class="video-image" />
+          <video src="video/aladdin.mp4" muted></video>
+          <p class="video-title">알라딘</p>
+        </div>
+        <div class="video">
+          <img src="img/배트맨.jpg" alt="다크 나이트" class="video-image" />
+          <video src="video/dark knight.mp4" muted></video>
+          <p class="video-title">다크 나이트</p>
+        </div>
+        <div class="video">
+          <img src="img/테넷yo.jpg" alt="테넷" class="video-image" />
+          <video src="video/tenet.mp4" muted></video>
+          <p class="video-title">테넷</p>
+        </div>
+        <div class="video">
+          <img src="img/showman.jpg" alt="위대한 쇼맨" class="video-image" />
+          <video src="video/show.mp4" muted></video>
+          <p class="video-title">위대한 쇼맨</p>
+        </div>
+        <div class="video">
+          <img src="img/주토피아3.jpg" alt="주토피아" class="video-image" />
+          <video src="video/zootopia.mp4" muted></video>
+          <p class="video-title">주토피아</p>
+        </div>
+      </div>
+
+      <div class="popup-video">
+        <span>&times;</span>
+        <video src="video/about time2.mp4" muted autoplay controls></video>
+      </div>
+    </div>
+
+    <script>
+      document.querySelectorAll('.video-container .video').forEach((video) => {
+        video.onclick = () => {
+          const popupVideo = document.querySelector('.popup-video video');
+          const videoSrc = video.querySelector('video').getAttribute('src');
+
+          // 이미지를 클릭하면 영상은 그대로 나오게끔 수정
+          popupVideo.src = videoSrc;
+
+          popupVideo.play();
+          document.querySelector('.popup-video').style.display = 'block';
+        };
+      });
+
+      document.querySelector('.popup-video span').onclick = () => {
+        const popupVideo = document.querySelector('.popup-video video');
+        popupVideo.pause();
+        popupVideo.currentTime = 0;
+        document.querySelector('.popup-video').style.display = 'none';
+      };
+    </script>
+  </body>
+</html>
